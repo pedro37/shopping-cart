@@ -1,6 +1,7 @@
 package uk.gov.hmrc.shopping.shoppingcart
 
 import uk.gov.hmrc.shopping.items.{Item, ValidItems}
+import uk.gov.hmrc.shopping.offers.SpecialOffers
 import scala.io.StdIn
 import scala.util.{Success, Failure, Try}
 
@@ -15,7 +16,7 @@ object ShoppingCartCommandLine {
       val standardCart = new Parser().parse(commandLine).foldLeft(StandardCart()) { (standardCart, item) =>
         standardCart.addItemToCart(item)
       }
-      Checkout(standardCart).cartTotal
+      SpecialOffers(standardCart).cartTotal
     }) match {
       case Success(total) => println(s"Your shopping cart total is £$total")
       case Failure(e) => println(e.getMessage)

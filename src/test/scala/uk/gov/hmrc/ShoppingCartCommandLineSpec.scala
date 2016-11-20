@@ -6,7 +6,6 @@ import org.specs2.mutable.Specification
 import uk.gov.hmrc.shopping.items.{Apple, Orange, Item}
 import uk.gov.hmrc.shopping.shoppingcart.{ShoppingCartCommandLine, Parser}
 
-import scala.io.StdIn
 
 /**
   * Created by peterwhitehead on 20/11/2016.
@@ -37,14 +36,14 @@ class ShoppingCartCommandLineSpec extends Specification {
       }
     }
 
-    "read apple, apple, orange, apple should be 2.05" in {
+    "read apple, apple, orange, apple would be 2.05 knock off free apple 1.45" in {
       val in = new ByteArrayInputStream(("apple,apple,orange,apple").getBytes)
       val out = new ByteArrayOutputStream()
 
       Console.withIn(in) {
         Console.withOut(out) {
           ShoppingCartCommandLine.main(null)
-          out.toString must contain("Your shopping cart total is £2.05")
+          out.toString must contain("Your shopping cart total is £1.45")
         }
       }
     }

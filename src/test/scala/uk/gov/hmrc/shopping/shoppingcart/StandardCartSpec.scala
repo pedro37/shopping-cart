@@ -1,7 +1,7 @@
 package uk.gov.hmrc.shopping.shoppingcart
 
 import org.specs2.mutable._
-import uk.gov.hmrc.shopping.items.{Item, Orange, Apple}
+import uk.gov.hmrc.shopping.items.{Orange, Apple}
 
 /**
   * Created by peterwhitehead on 20/11/2016.
